@@ -46,8 +46,9 @@ LUA
   [[ $actual_disabled == "$expected_disabled" ]] || fail "$description: disabled devices" "expected $expected_disabled, got $actual_disabled"
   pass "$description"
 done <<'CASES'
-Chromebook EC with power and volume keys|0|power-button|Power Button=8000 10000000000000 0;cros_ec_buttons=1c000000000000 0;Lid Switch=0
-Chromebook EC with power key only|0|power-button|cros_ec_buttons=10000000000000 0;Power Button=10000000000000 0
+Chromebook EC with power and volume keys|0|power-button power-button-1|Power Button=8000 10000000000000 0;cros_ec_buttons=1c000000000000 0;Lid Switch=0
+Chromebook EC with power key only|0|power-button power-button-1|cros_ec_buttons=10000000000000 0;Power Button=10000000000000 0
+Chromebook EC with both ACPI power buttons|0|power-button power-button-1|cros_ec_buttons=10000000000000 0;Power Button=10000000000000 0;Power Button=10000000000000 0
 Chromebook EC with volume keys only|1|-|cros_ec_buttons=c000000000000 0;Power Button=10000000000000 0
 Regular laptop|1|-|Power Button=10000000000000 0;AT Translated Set 2 keyboard=10000000000000 0
 Other device reporting the power key|1|-|Logitech USB Receiver System Control=8000 0 0 0 0 0 0 c000 10000000000000 0
